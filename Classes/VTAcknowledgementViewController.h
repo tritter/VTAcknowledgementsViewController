@@ -42,10 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param title The acknowledgement title.
  @param text The acknowledgement body text.
+ @param font The body font.
 
  @return A newly created `VTAcknowledgementViewController` instance.
  */
-- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text;
+- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text font:(UIFont *)font;
 
 @end
 

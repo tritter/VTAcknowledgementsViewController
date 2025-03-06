@@ -26,6 +26,7 @@
 @interface VTAcknowledgementViewController ()
 
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) UIFont *font;
 
 @end
 
@@ -35,12 +36,13 @@ const CGFloat VTLeftRightDefaultMargin = 10;
 
 @implementation VTAcknowledgementViewController
 
-- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text {
+- (instancetype)initWithTitle:(NSString *)title text:(NSString *)text font:(UIFont *)font{
     self = [super init];
 
     if (self) {
         self.title = title;
         self.text = text;
+        self.font = font;
     }
 
     return self;
@@ -50,7 +52,11 @@ const CGFloat VTLeftRightDefaultMargin = 10;
     [super viewDidLoad];
 
     UITextView *textView = [[UITextView alloc] initWithFrame:self.view.bounds];
-    textView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    if (self.font) {
+        font = self.font;
+    }
+    textView.font = font;
     textView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     textView.alwaysBounceVertical = YES;
 #if !TARGET_OS_TV

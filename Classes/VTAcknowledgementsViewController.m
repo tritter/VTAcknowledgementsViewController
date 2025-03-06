@@ -235,6 +235,9 @@ static const CGFloat VTLabelMargin = 20;
 #pragma mark - Configuration
 
 - (UIFont *)headerFooterFont {
+    if (self.rowFont) {
+        return self.rowFont;
+    }
     return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
 }
 
@@ -350,6 +353,7 @@ static const CGFloat VTLabelMargin = 20;
 }
 
 - (void)configureCell:(UITableViewCell *)cell withAcknowledgement:(VTAcknowledgement *)acknowledgement {
+    cell.textLabel.font = self.rowFont;
     cell.textLabel.text = acknowledgement.title;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
@@ -358,7 +362,7 @@ static const CGFloat VTLabelMargin = 20;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTAcknowledgement *acknowledgement = self.acknowledgements[indexPath.row];
-    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:acknowledgement.title text:acknowledgement.text];
+    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:acknowledgement.title text:acknowledgement.text font:self.licenseFont];
 
     [self.navigationController pushViewController:viewController animated:YES];
 }

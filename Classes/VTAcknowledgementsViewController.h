@@ -55,6 +55,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) IBInspectable NSString *footerText;
 
 /**
+ Font to be used in the list.
+
+ It needs to get set before `viewDidLoad` gets called. Its value can be defined in the header of the plist file.
+ */
+@property (nonatomic, strong) UIFont *rowFont;
+
+/**
+ Font to be used in the licenseDetailView.
+
+ It needs to get set before `viewDidLoad` gets called. Its value can be defined in the header of the plist file.
+ */
+@property (nonatomic, strong) UIFont *licenseFont;
+
+/**
  Acknowledgements plist file name whose contents to be loaded.
 
  It expects to get set by "User Defined Runtime Attributes" in Interface Builder.

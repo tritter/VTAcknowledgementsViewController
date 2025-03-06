@@ -34,7 +34,7 @@
 @implementation VTAcknowledgementViewControllerTests
 
 - (void)testLoadTextViewAsMainViewWithTextContent {
-    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:@"T1" text:@"text"];
+    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:@"T1" text:@"text" font:nil];
     [viewController viewDidLoad];
     [viewController viewDidLayoutSubviews];
 
@@ -47,7 +47,7 @@
 }
 
 - (void)testConfigureTitle {
-    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:@"T2" text:@"text"];
+    VTAcknowledgementViewController *viewController = [[VTAcknowledgementViewController alloc] initWithTitle:@"T2" text:@"text" font:nil];
     XCTAssertEqualObjects(viewController.title, @"T2", @"should set its title with the value from the initializer");
 }
 

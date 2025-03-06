@@ -29,6 +29,8 @@
 
 - (IBAction)pushAckViewControllerWithDefaultFileName:(id)sender {
     VTAcknowledgementsViewController *viewController = [VTAcknowledgementsViewController acknowledgementsViewController];
+    viewController.rowFont = [UIFont boldSystemFontOfSize:12];
+    viewController.licenseFont = [UIFont boldSystemFontOfSize:15];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
